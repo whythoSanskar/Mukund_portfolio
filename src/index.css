@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap);
+
+@font-face {
+  font-family: 'SF Pro';
+  font-weight: 400; /* or 500, 600, etc. depending on your needs */
+  src: url('/fonts/SF-Pro-Regular.woff2') format('woff2');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+.min-h-screen1 {
+  min-height: 99.5vh;
+}
+
+.container-landing {
+  width: 828px;
+  height: 268px;
+}
+
+
+
