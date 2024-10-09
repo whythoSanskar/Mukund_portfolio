@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
-import Home from './Home';
 import { landingSvg } from '../utils';
+import Home from './Home';
 
 export default function Landing() {
   useEffect(() => {
