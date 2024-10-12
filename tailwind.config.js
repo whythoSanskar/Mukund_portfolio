@@ -18,10 +18,12 @@ export default {
       },
       fontFamily: {
         sans: ["SF Pro", "system-ui", "sans-serif"],
+        'sf-pro-display': ['SF Pro Display', 'sans-serif'],
         'instrument-serif': ['Instrument Serif', 'sans-serif'],
       },
       colors:{
-        "greyish" : "#6F6F6F"
+        "greyish" : "#6F6F6F",
+        "grayer": "#4A4A4A"
       }
     },
   },
