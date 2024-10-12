@@ -3,7 +3,7 @@ import { navImg } from "../utils";
 
 export default function Navbar() {
   return (
-    <div className="flex justify-between items-center w-full pl-3 pr-8 py-4 ">
+    <div className="flex justify-between items-center w-full pl-[99px] pr-[99px] py-4 ">
           <div className="flex items-center">
             <img src={navImg} alt="navimage" style={{
                 zIndex:1

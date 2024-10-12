@@ -28,7 +28,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className='flex justify-center items-center my-[112px]'>
+    <div className='flex justify-center items-center my-[212px]'>
       <p className="typewriter text-8xl italic text-white text-center leading-none w-[828px]">
         <span className="font-semibold box-1">Crafting</span>{" "}
         <span className="font-instrument-serif box-2">Experiences</span>{" "}

@@ -44,7 +44,7 @@ export default function Landing() {
         </div>
       </div>
 
-      <div className="black-screen fixed top-0 left-0 w-full h-full bg-black"></div>
+      <div className="black-screen fixed top-0 left-0 w-full min-h-screen bg-black"></div>
 
       <div className="home-transition absolute inset-0">
         <Home />
