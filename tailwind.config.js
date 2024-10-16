@@ -17,8 +17,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ["SF Pro", "system-ui", "sans-serif"],
-        'sf-pro-display': ['SF Pro Display', 'sans-serif'],
+        sans: ["system-ui", "sans-serif"],
+        // 'sf-pro-display': ['SF Pro Display', 'sans-serif'],
         'instrument-serif': ['Instrument Serif', 'sans-serif'],
       },
       colors:{
