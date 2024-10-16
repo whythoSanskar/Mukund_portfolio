@@ -55,7 +55,7 @@ export default function Home() {
             <div className="w-[194px] h-[66px] projectTitle">
               <p className="text-[55px] absolute top-[15vh] left-[8vw] font-medium text-white font-sf-pro-display">Projects</p>
             </div>
-            {/* <div
+            <div
               className="bg-white absolute top-[30vh] left-[50vw] w-screen h-[485px] 
             shrink items-center project flex"
             >
@@ -67,7 +67,7 @@ export default function Home() {
               <div className="projectImg mt-[30px] ml-[70px]">
                 <img src={p1} alt="project1.jpg" />
               </div>
-            </div> */}
+            </div>
           </>
         )}
       </div>
