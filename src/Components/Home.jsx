@@ -53,7 +53,7 @@ export default function Home() {
         {activeSection === 'projects' && (
           <>
             <div className="w-[194px] h-[66px] projectTitle">
-              <p className="text-[55px] absolute top-[15vh] left-[8vw] font-medium text-white font-sf-pro-display">Works</p>
+              <p className="text-[55px] absolute top-[15vh] left-[8vw] font-medium text-white font-sf-pro-display">Work</p>
             </div>
             <div
               className="bg-white absolute top-[30vh] left-[50vw] w-screen h-[485px] 
