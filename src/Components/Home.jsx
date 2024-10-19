@@ -5,7 +5,7 @@ import Hero from "./Hero";
 import { p1 } from "../utils";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection]  =useState('home');
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -17,11 +17,11 @@ export default function Home() {
       .fromTo(
         ".project",
         { opacity: 0, y: 100, width: 3 },
-        { opacity: 1, y: 0, duration: 1 , transformOrigin: "center 40%",    width: 3, ease: "power2.inOut", borderRadius:"20px"},
+        { opacity: 1, y: 0, duration: 1 , transformOrigin: "center 90%",    width: 3, ease: "power2.inOut", borderRadius:"20px"},
       )
       .to(
         ".project",
-        {opacity:1, y: 0, duration: 0.8, left:120, width:"86%", ease: "power3.in" ,borderRadius: "8px"}
+        {opacity:1, y: 0, duration: 0.8, left:120, width:"81em", ease: "power3.in" ,borderRadius: "8px"}
       )
       .fromTo(
         '.projectImg',
@@ -53,7 +53,7 @@ export default function Home() {
         {activeSection === 'projects' && (
           <>
             <div className="w-[194px] h-[66px] projectTitle">
-              <p className="text-[55px] absolute top-[15vh] left-[8vw] font-medium text-white font-sf-pro-display">Projects</p>
+              <p className="text-[55px] absolute top-[15vh] left-[8vw] font-medium text-white font-sf-pro-display">Work</p>
             </div>
             <div
               className="bg-white absolute top-[30vh] left-[50vw] w-screen h-[485px] 
@@ -64,7 +64,7 @@ export default function Home() {
                 <p className="text-[22px] w-full text-grayer font-sf-pro-display">Redesigned, Reimagined, and now Responsive. I took customer portal beyond the desktop, crafting a responsive interface that doesn&apos;t compromise on functionality.</p>
               </div>
 
-              <div className="projectImg mt-[30px] ml-[70px]">
+              <div className="projectImg pl-[99px] pr-[99px]">
                 <img src={p1} alt="project1.jpg" />
               </div>
             </div>

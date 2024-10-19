@@ -4,7 +4,7 @@ export default function Projects() {
   return (
     <div>
       <div className="pl-12 w-94 h-16 justify-between">
-        <h1 className="text-white text-[55px]">Projects</h1>
+        <h1 className="text-white text-[55px]">Works</h1>
       </div>
       <br /><br />
       <div className="inset-0 flex justify-center items-center">
