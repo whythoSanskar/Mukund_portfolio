@@ -1,16 +1,26 @@
 import { navImg } from "../utils";
-
-export default function Navbar({ onProjectsClick }) { // receive the prop
+// eslint-disable-next-line react/prop-types
+export default function Navbar({ activeSection, onProjectsClick , onAboutClick, onContactClick }) { 
+  const handleResumeDownload = () => {
+    const link = document.createElement('a');
+    link.href = "/doc/wallpaperflare.com_wallpaper.jpg";  
+    link.download = "Mukund_Sharma_Resume.pdf";  
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  const textColor = activeSection === 'about' ? 'text-black' : 'text-white';
   return (
     <div className="flex justify-between items-center w-full pl-[99px] pr-[99px] py-4 ">
       <div className="flex items-center">
         <img src={navImg} alt="navimage" style={{ zIndex: 1 }} />
-        <p className="text-xl text-white" style={{ zIndex: 2 }}>Mukund Sharma</p>
+        <p className={`text-xl ${textColor}`} style={{ zIndex: 2 }}>Mukund Sharma</p>
       </div>
-      <div className="flex w-[268px] justify-between items-center cursor-pointer text-greyish flex-none">
+      <div className="flex space-x-8 items-center flex-none cursor-pointer text-greyish">
         <p className="text-xl font-normal cursor-pointer" onClick={onProjectsClick}>Projects</p>
-        <p className="text-xl font-normal cursor-pointer">About</p>
-        <p className="text-xl font-normal cursor-pointer">Contact</p>
+        <p className={`text-xl font-normal cursor-pointer ${activeSection === 'about' ? 'text-orange-500' : ''}`} onClick={onAboutClick}>About</p>
+        <p className="text-xl font-normal cursor-pointer" onClick={handleResumeDownload}>Resume</p>
+        <p className="text-xl font-normal cursor-pointer" onClick={onContactClick}>Contact</p>
       </div>
     </div>
   );

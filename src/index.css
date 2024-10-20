@@ -29,15 +29,11 @@
 } */
 
 
-.animation {
-  width: 100%;
-  text-align: center;
-  font-size: 50px;
-  padding: 25px;
-  background: black;
-  color: white;
-  animation: expand_center 5000ms;
-  animation-fill-mode: forwards;
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-Regular.otf') format('opentype'),
+       url('/fonts/NeueMontreal-Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
-
-
