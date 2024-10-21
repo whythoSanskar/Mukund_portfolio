@@ -1,25 +1,46 @@
 import { gsap } from 'gsap';
 import { useEffect, useRef, useState } from 'react';
-import { landingSvg } from "../utils";
-import { AboutImg } from "../utils";
+import { landingSvg, AboutImg, heroImg,AboutImgOnClick } from "../utils";
 
-export default function About() {
+// eslint-disable-next-line react/prop-types
+export default function About({ onAboutClick }) {
   const tl = useRef(null);
   const [backgroundBlack, setBackgroundBlack] = useState(false);
+
   const handleOnClick = () => {
-    const tlBlack = gsap.timeline();
-    tlBlack.fromTo(
-      ".black-overlay",
-      { clipPath: "circle(0% at 50% 50%)" },
-      {
-        clipPath: "circle(150% at 50% 50%)",
-        duration: 1,
-        ease: "power3.inOut",
-        onComplete: () => {
-          setBackgroundBlack(true); 
+    const tlOverlay = gsap.timeline();
+
+    if (!backgroundBlack) {
+      tlOverlay.fromTo(
+        ".black-overlay",
+        { clipPath: "circle(0% at 50% 50%)" },
+        {
+          clipPath: "circle(150% at 50% 50%)",
+          duration: 1,
+          ease: "power3.inOut",
+          onComplete: () => {
+            setBackgroundBlack(true); 
+            onAboutClick(); 
+            gsap.set(".black-overlay", { clipPath: "circle(0% at 50% 50%)" });
+          }
         }
-      }
-    );
+      );
+    } else {
+      tlOverlay.fromTo(
+        ".white-overlay",
+        { clipPath: "circle(0% at 50% 50%)" },
+        {
+          clipPath: "circle(150% at 50% 50%)",
+          duration: 1,
+          ease: "power3.inOut",
+          onComplete: () => {
+            setBackgroundBlack(false);
+            onAboutClick();
+            gsap.set(".white-overlay", { clipPath: "circle(0% at 50% 50%)" });
+          }
+        }
+      );
+    }
   };
 
   useEffect(() => {
@@ -33,12 +54,11 @@ export default function About() {
             opacity: 1,
             y: 0,
             duration: 2,
-            width: "2px",
+            width: "3px",
             ease: "power2.inOut",
             borderRadius: "20px",
           }
         )
-        
         .to(".white-screen", {
           opacity: 1,
           y: 0,
@@ -47,10 +67,8 @@ export default function About() {
           ease: "power3.in",
           borderRadius: "0px",
         })
-        .fromTo(".abt-text",{
-          opacity:0
-        },{opacity:1})
-        .fromTo(".abox-1", { opacity: 0 }, { opacity: 1 })
+        .fromTo(".abt-text", { opacity: 0 }, { opacity: 1 })
+        .fromTo(".abox-1", { opacity: 0 }, { opacity: 1 , duration: 0.2})
         .fromTo(".abox-2", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "power1.inOut" })
         .fromTo(".abox-3", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.inOut" });
     }
@@ -58,48 +76,47 @@ export default function About() {
 
   return (
     <main className={`min-h-screen mx-auto py-1 ${backgroundBlack ? 'bg-black' : 'bg-white'} white-screen relative`}>
-      <div className='abt-text'>
-      <div
-        className="black-overlay fixed top-0 left-0 w-full h-full bg-black"
-        style={{ zIndex: 10, pointerEvents: 'none', clipPath: 'circle(0% at 50% 50%)' }}
-      ></div>
+      <div className="abt-text">
+        <div
+          className="white-overlay fixed top-0 left-0 w-full h-full bg-white"
+          style={{ zIndex: 15, pointerEvents: 'none', clipPath: 'circle(0% at 50% 50%)' }}
+        ></div>
 
-      <div className="flex flex-col items-center mb-20 abox-1 abt-text relative" style={{ zIndex: 20 }}>
-        <img
-          src={landingSvg}
-          alt="Illustrated portrait"
-          className="w-[191.61px] h-[191.61px] mb-8 cursor-pointer"
-          onClick={handleOnClick}
-        />
-        
-        <div className="flex flex-col items-center space-y-6 abox-2">
+        <div
+          className="black-overlay fixed top-0 left-0 w-full h-full bg-black"
+          style={{ zIndex: 10, pointerEvents: 'none', clipPath: 'circle(0% at 50% 50%)' }}
+        ></div>
+
+        <div className="flex flex-col items-center mb-20 abox-1 abt-text relative" style={{ zIndex: 20 }}>
+          <img
+            src={`${backgroundBlack ?  heroImg : landingSvg }`}
+            alt="Illustrated portrait"
+            className="w-[191.61px] h-[191.61px] mb-8 cursor-pointer"
+            onClick={handleOnClick}
+          />
+
+          <div className={`flex flex-col items-center space-y-6 abox-2 ${backgroundBlack ? 'text-white' : 'text-black'}`}>
+            <p className="text-[22px] leading-normal font-normal w-[468px]">
+              Hey there! I&apos;m Mukund Sharma, a UX designer with a knack for turning &quot;meh&quot; into <span className="font-semibold italic">marvelous</span>.
+            </p>
+
+            <p className="text-[22px] leading-normal font-normal w-[468px]">
+              I&apos;ve spent the last year making sure users actually enjoy using products. I&apos;m like a digital detective, constantly on the lookout for ways to improve functionality and make every click a delightful experience.
+            </p>
+          </div>
+        </div>
+
+        <div className={`flex flex-col items-center abox-3 relative ${backgroundBlack ? 'text-white' : 'text-black'}`} style={{ zIndex: 20 }}>
+          <img
+            src={`${backgroundBlack ? AboutImgOnClick : AboutImg}`}
+            alt="Decorative badge"
+            className="w-[115px] h-[115px] mb-8"
+          />
+
           <p className="text-[22px] leading-normal font-normal w-[468px]">
-            Hey there! I&apos;m Mukund Sharma, a UX designer with
-            a knack for turning &quot;meh&quot; into <span className="font-semibold italic">marvelous</span>.
-          </p>
-          
-          <p className="text-[22px] leading-normal font-normal w-[468px]">
-            I&apos;ve spent the last year making sure users actually
-            enjoy using products. I&apos;m like a digital detective,
-            constantly on the lookout for ways to improve
-            functionality and make every click a delightful
-            experience.
+            If you&apos;ve got a product that needs some love, I&apos;m your go-to!
           </p>
         </div>
-      </div>
-
-      <div className="flex flex-col items-center abox-3 relative" style={{ zIndex: 20 }}>
-        <img
-          src={AboutImg}
-          alt="Decorative badge"
-          className="w-[115px] h-[115px] mb-8"
-        />
-        
-        <p className="text-[22px] leading-normal font-normal w-[468px]">
-          If you&apos;ve got a product that needs some love, I&apos;m
-          your go-to!
-        </p>
-      </div>
       </div>
     </main>
   );

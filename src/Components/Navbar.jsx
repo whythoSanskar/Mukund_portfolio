@@ -1,6 +1,6 @@
 import { navImg } from "../utils";
 // eslint-disable-next-line react/prop-types
-export default function Navbar({ activeSection, onProjectsClick, onAboutClick, onContactClick }) { 
+export default function Navbar({ activeSection,activeAbtSection, onProjectsClick, onAboutClick, onContactClick }) { 
   const handleResumeDownload = () => {
     const link = document.createElement('a');
     link.href = "/doc/wallpaperflare.com_wallpaper.jpg";  
@@ -9,9 +9,12 @@ export default function Navbar({ activeSection, onProjectsClick, onAboutClick, o
     link.click();
     document.body.removeChild(link);
   };
-  const textColor = activeSection === 'about' ? 'text-black' : 'text-white';
-  const bgColor = activeSection === 'about' ? 'bg-white' : 'bg-black';
-  
+  let textColor = activeSection === 'about'  ? 'text-black' : 'text-white';
+  let bgColor = activeSection === 'about'  ? 'bg-white' : 'bg-black';
+  if(activeSection === 'about') {
+    bgColor = activeAbtSection != true ? 'bg-black':'bg-white';
+    textColor = activeAbtSection != true ? 'text-white' : 'text-black';
+  }
   return (
     <div className={`nav flex justify-between items-center w-full pl-[99px] pr-[99px] py-4 ${bgColor}`}>
       <div className="flex items-center">
