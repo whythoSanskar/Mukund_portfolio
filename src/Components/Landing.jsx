@@ -19,9 +19,7 @@ export default function Landing() {
       { y: 0, duration: 1.5, ease: 'power3.inOut' }, "+=0.5"  
     )
     
-    .to('.landing-image-text', { opacity: 0, duration: 0.5, ease: 'power3.in' })
-
-   
+    .to('.landing-image-text', { opacity: 0, duration: 0.5, ease: 'power3.in' })   
     .fromTo(
       '.home-transition',
       { opacity: 0, y: 0 }, 

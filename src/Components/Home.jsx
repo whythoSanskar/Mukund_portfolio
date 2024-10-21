@@ -1,34 +1,39 @@
 import Navbar from "./Navbar";
 import { gsap } from "gsap";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Hero from "./Hero";
 import Projects from "./Projects";
 import About from "./About";
 
 export default function Home() {
-  const [activeSection, setActiveSection]  =useState('home');
+  const [activeSection, setActiveSection] = useState('home');
+  const tl = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline();
-    tl.fromTo(
-      ".hero",
-      { opacity: 0 },
-      { opacity: 1, duration: 1, ease: "power2.in" }
-    )
-    .fromTo(
-      '.white-screen',
-      {opacity:1, y: 100},
-      {opacity:0, duration: 1, ease: "power1.inOut"}
-    )
-    
+    if (!tl.current) {
+      tl.current = gsap.timeline();
+
+      tl.current.fromTo(
+        ".hero",
+        { opacity: 0 },
+        { opacity: 1, delay: 2, ease: "power2.in" }
+      );
+    }
   }, [activeSection]);
 
   return (
-    <div className={`${activeSection === 'about' ? 'bg-white' : 'bg-black'} min-h-screen`}>
-      <Navbar 
-      activeSection={activeSection}
-      onProjectsClick={() => setActiveSection('projects')}  onAboutClick={() => setActiveSection('about')} onContactClick={()=>window.open('mailto:email@mishrasanskar60.com?subject=Subject&body=Body%20goes%20here')
-      }/>
+    <div className="bg-black min-h-screen main-body">
+    <Navbar
+        activeSection={activeSection}
+        onProjectsClick={() => setActiveSection('projects')}
+        onAboutClick={() => setActiveSection('about')}
+        onContactClick={() =>
+          window.open(
+            'mailto:email@mishrasanskar60.com?subject=Subject&body=Body%20goes%20here'
+          )
+        }
+        className="nav"
+      />
       <div>
         {activeSection === 'home' && (
           <div className="hero">
@@ -43,7 +48,7 @@ export default function Home() {
         )}
         {activeSection === 'about' && (
           <>
-          <About />
+            <About />
           </>
         )}
       </div>

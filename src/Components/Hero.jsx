@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 export default function Hero() {
   useEffect(() => {
     const tl = gsap.timeline();
-
     tl.fromTo(
       '.box-1', 
       { opacity: 0 }, 
