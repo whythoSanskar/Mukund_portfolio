@@ -8,6 +8,7 @@ import About from "./About";
 export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
   const [activeAbtSection, setActiveAbtSection] = useState(false);
+  const [activeeverSection, setActiveeverSection] = useState(false);
 
   const tl = useRef(null);
 
@@ -26,13 +27,14 @@ export default function Home() {
   const handleAboutClick = () => {
     setActiveSection('about');
     setActiveAbtSection(true);  
-  };
-
+    setActiveeverSection(true);
+  }
   return (
     <div className={`min-h-screen main-body bg-black`}>
       <Navbar
         activeSection={activeSection}
         activeAbtSection={activeAbtSection}
+        activeeverSection={activeeverSection}
         onProjectsClick={() => setActiveSection('projects')}
         onAboutClick={handleAboutClick}
         onContactClick={() =>
@@ -40,6 +42,7 @@ export default function Home() {
             'mailto:email@mishrasanskar60.com?subject=Subject&body=Body%20goes%20here'
           )
         }
+        style={{ zIndex: 1, position: 'relative' }}
       />
       <div>
         {activeSection === 'home' && (
@@ -53,7 +56,7 @@ export default function Home() {
         )}
 
         {activeSection === 'about' && (
-          <About onAboutClick={() => setActiveAbtSection(prevState => !prevState)} />
+          <About onAboutClick={() => setActiveAbtSection(prevState => !prevState)} style={{ zIndex: 2, position: 'relative' }} />
         )}
       </div>
     </div>

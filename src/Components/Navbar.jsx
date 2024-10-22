@@ -1,6 +1,8 @@
 import { navImg } from "../utils";
+import { useState, useEffect } from "react";
 // eslint-disable-next-line react/prop-types
-export default function Navbar({ activeSection,activeAbtSection, onProjectsClick, onAboutClick, onContactClick }) { 
+export default function Navbar({ activeSection,activeAbtSection,activeeverSection, onProjectsClick, onAboutClick, onContactClick }) { 
+  const [aboutVisited, setAboutVisited] = useState(false);
   const handleResumeDownload = () => {
     const link = document.createElement('a');
     link.href = "/doc/wallpaperflare.com_wallpaper.jpg";  
@@ -15,8 +17,18 @@ export default function Navbar({ activeSection,activeAbtSection, onProjectsClick
     bgColor = activeAbtSection != true ? 'bg-black':'bg-white';
     textColor = activeAbtSection != true ? 'text-white' : 'text-black';
   }
+  useEffect(() => {
+    if (activeeverSection) {
+      setAboutVisited(true);
+    }
+  }, [activeeverSection]);
   return (
-    <div className={`nav flex justify-between items-center w-full pl-[99px] pr-[99px] py-4 ${bgColor}`}>
+    <div className={`${aboutVisited ?  
+      `${bgColor==="bg-white" ? `nav flex justify-between items-center w-full pl-[99px] pr-[99px] py-4 ${bgColor} ease-in-out transition-colors delay-[500ms]`
+      : 
+      `nav flex justify-between items-center w-full pl-[99px] pr-[99px] py-4 ${bgColor} ease-in-out transition-colors delay-[500ms]`}
+      `: `nav flex justify-between items-center w-full pl-[99px] pr-[99px] py-4 ${bgColor} ease-in-out transition-colors delay-[3000ms]`}
+      `}>
       <div className="flex items-center">
         <img src={navImg} alt="navimage" style={{ zIndex: 1 }} />
         <p className={`text-xl ${textColor}`} style={{ zIndex: 2 }}>Mukund Sharma</p>
