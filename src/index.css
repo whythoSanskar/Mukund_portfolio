@@ -1,12 +1,4 @@
 @import url(https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap);
-/* @import url(https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&display=swap); */
-
-/* 
-@font-face {
-  font-family: 'SF Pro';
-  font-weight: 400; /* or 500, 600, etc. depending on your needs */
-  /* src: url('/fonts/SF-Pro-Regular.woff2') format('woff2');
-} */ 
 
 @tailwind base;
 @tailwind components;
@@ -22,22 +14,13 @@
   height: 268px;
 }
 
-/* 
-.projectTitle{
-  font-family: 'SF Pro';
-  font-weight: 500;
-} */
 
 
-.animation {
-  width: 100%;
-  text-align: center;
-  font-size: 50px;
-  padding: 25px;
-  background: black;
-  color: white;
-  animation: expand_center 5000ms;
-  animation-fill-mode: forwards;
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-Regular.otf') format('opentype'),
+       url('/fonts/NeueMontreal-Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
-
-

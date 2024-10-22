@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 export default function Hero() {
   useEffect(() => {
     const tl = gsap.timeline();
-
     tl.fromTo(
       '.box-1', 
       { opacity: 0 }, 
@@ -28,7 +27,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className='flex justify-center items-center my-[212px]'>
+    <div className='flex justify-center items-center mt-[180px]'>
       <p className="typewriter text-8xl italic text-white text-center leading-none w-[828px]">
         <span className="font-semibold box-1">Crafting</span>{" "}
         <span className="font-instrument-serif box-2">Experiences</span>{" "}
