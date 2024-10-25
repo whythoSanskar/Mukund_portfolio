@@ -19,18 +19,25 @@ export default function Home() {
       tl.current.fromTo(
         ".hero",
         { opacity: 0 },
-        { opacity: 1, delay: 2, ease: "power2.in" }
+        { opacity: 1, delay: 0.5, ease: "power2.in" } 
       );
     }
+
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
   }, [activeSection]);
 
   const handleAboutClick = () => {
     setActiveSection('about');
     setActiveAbtSection(true);  
     setActiveeverSection(true);
-  }
+  };
+
   return (
-    <div className={`min-h-screen main-body bg-black`}>
+    <div className="min-h-screen w-screen bg-black overflow-hidden">
       <Navbar
         activeSection={activeSection}
         activeAbtSection={activeAbtSection}
@@ -44,21 +51,18 @@ export default function Home() {
         }
         style={{ zIndex: 1, position: 'relative' }}
       />
-      <div>
-        {activeSection === 'home' && (
-          <div className="hero">
-            <Hero />
-          </div>
-        )}
 
-        {activeSection === 'projects' && (
-          <Projects />
-        )}
+      {activeSection === 'home' && (
+        <Hero />
+      )}
 
-        {activeSection === 'about' && (
-          <About onAboutClick={() => setActiveAbtSection(prevState => !prevState)} style={{ zIndex: 2, position: 'relative' }} />
-        )}
-      </div>
+      {activeSection === 'projects' && (
+        <Projects />
+      )}
+
+      {activeSection === 'about' && (
+        <About onAboutClick={() => setActiveAbtSection(prevState => !prevState)} />
+      )}
     </div>
   );
 }

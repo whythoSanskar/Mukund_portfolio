@@ -33,8 +33,8 @@ export default function Landing() {
     <div className="relative min-h-screen bg-white"> 
       <div className="grid items-center min-h-screen justify-center landing">
         <div className="container-landing flex content-between justify-center landing-image-text">
-          <img className="landing-image" src={landingSvg} alt="landing svg" />
-          <div className="text-black w-[337px] h-[74px] text-3xl my-[100px]">
+          <img className="landing-image" src={landingSvg} alt="landing svg"  loading="lazy" />
+          <div className="text-black w-[100px] h-[22.2px] md:w-[337px] md:h-[74px] text-lg md:text-3xl my-10 md:my-[100px]">
             <p className='font-sf-pro-display'>
               I love to improve the <span className="font-semibold italic">functionality</span> of products
             </p>

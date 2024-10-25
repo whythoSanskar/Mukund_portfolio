@@ -55,7 +55,7 @@ export default function Projects() {
         </div>
 
         <div className="projectImg pl-[99px] pr-[99px]">
-          <img src={p1} alt="project1.jpg" />
+          <img src={p1} alt="project1.jpg"  loading="lazy" />
         </div>
       </div>
     </div>
