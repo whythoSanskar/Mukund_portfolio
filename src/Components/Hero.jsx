@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 
 export default function Hero() {
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { duration: 1.5, ease: "ease.out" } });
+    const tl = gsap.timeline({ defaults: { duration: 4, ease: "ease.out" } });
 
     tl.fromTo(
       ".word-creating",
