@@ -19,7 +19,8 @@ export default {
       fontFamily: {
         sans: ["system-ui", "sans-serif"],
         'instrument-serif': ['Instrument Serif', 'sans-serif'],
-        montreal: ['"Neue Montreal"', 'sans-serif'],
+        'neu-montreal': ['Neu Montreal', 'sans-serif'],
+        'creato': ['Creato Display', 'sans-serif'],
       },
       colors:{
         "greyish" : "#6F6F6F",

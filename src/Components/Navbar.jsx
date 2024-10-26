@@ -1,43 +1,53 @@
 import { navImg } from "../utils";
-import { useState } from "react";
-import { useMediaQuery } from 'react-responsive';
+import { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 
 // eslint-disable-next-line react/prop-types
-export default function Navbar({ activeSection, overlayComplete, onProjectsClick, onAboutClick, onContactClick }) { 
+export default function Navbar({ activeSection, overlayComplete, onProjectsClick, onAboutClick, onContactClick }) {
   const isSmallScreen = useMediaQuery({ maxWidth: 639 });
-  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [navbarColor, setNavbarColor] = useState("bg-black");
+  const [textColor, setTextColor] = useState("text-white");
 
-  // Determine colors based on overlay completion and active section
-  const textColor = overlayComplete || activeSection === 'about' ? 'text-black' : 'text-white';
-  const bgColor = overlayComplete || activeSection === 'about' ? 'bg-white' : 'bg-black';
+  useEffect(() => {
+    if (activeSection === 'about') {
+      const timer = setTimeout(() => {
+        setNavbarColor("bg-white");
+        setTextColor("text-black");
+      }, 1100); 
+
+      return () => clearTimeout(timer);
+    } else {
+      setNavbarColor("bg-black");
+      setTextColor("text-white");
+    }
+  }, [activeSection]);
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
   const handleLinkClick = (callback) => {
-    setIsMenuOpen(false);  
-    callback();  
+    setIsMenuOpen(false);
+    callback();
   };
 
   const handleResumeDownload = () => {
-    const link = document.createElement('a');
-    link.href = "/doc/wallpaperflare.com_wallpaper.jpg";  
-    link.download = "Mukund_Sharma_Resume.pdf";  
+    const link = document.createElement("a");
+    link.href = "/doc/wallpaperflare.com_wallpaper.jpg";
+    link.download = "Mukund_Sharma_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <nav className={`flex justify-between items-center w-full px-4 sm:px-6 md:px-10 lg:px-[99px] py-2 md:py-4 ${bgColor} transition-colors duration-500`}>
-      {/* Logo Section */}
+    <nav className={`flex justify-between items-center w-full px-6 md:px-10 lg:px-[99px] py-4 ${navbarColor} transition-colors duration-500`}>
       <div className="flex items-center">
-        <img src={navImg} alt="navimage" className="w-10 h-10" style={{ zIndex: 1 }} />
-        <p className={`text-lg font-bold ml-2 ${textColor}`} style={{ zIndex: 2 }}>Mukund Sharma</p>
+        <img src={navImg} alt="navimage" style={{ zIndex: 1 }} />
+        <p className={`text-lg lg:text-xl  ${textColor}`} style={{ zIndex: 2 }}>Mukund Sharma</p>
       </div>
 
-      {/* Hamburger Menu for Small Screens */}
       {isSmallScreen && (
         <button
           className={`focus:outline-none ${textColor} md:hidden z-10`}
@@ -106,7 +116,6 @@ export default function Navbar({ activeSection, overlayComplete, onProjectsClick
         </ul>
       </div>
 
-      {/* Regular Menu for Larger Screens */}
       {!isSmallScreen && (
         <div className="flex space-x-8 items-center">
           <p className={`text-xl font-normal cursor-pointer ${textColor}`} onClick={onProjectsClick}>Projects</p>

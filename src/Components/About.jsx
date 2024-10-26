@@ -4,7 +4,7 @@ import { landingSvg, AboutImg } from "../utils";
 export default function About() {
   return (
     <main
-      className={`min-h-screen mx-auto py-1 relative bg-white`}>
+      className={`min-h-screen mx-auto py-1 relative`}>
       <div
         className="flex flex-col items-center mb-20 abox-1 abt-text relative"
         style={{ zIndex: 20 }}

@@ -1,4 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Creato+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neu+Montreal:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -36,6 +38,21 @@ html, body {
 }
 
 
+@font-face {
+  font-family: 'Creato Display';
+  src: url('/fonts/creato-display.woff2') format('woff2'),
+       url('/fonts/creato-display.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neu Montreal';
+  src: url('/fonts/neu-montreal.woff2') format('woff2'),
+       url('/fonts/neu-montreal.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
 
 
 
