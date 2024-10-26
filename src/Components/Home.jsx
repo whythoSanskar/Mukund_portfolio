@@ -104,7 +104,9 @@ export default function Home() {
         overlayComplete={overlayComplete}
         onProjectsClick={() => handleSectionChange("projects")}
         onAboutClick={() => handleSectionChange("about")}
-        onContactClick={() => handleSectionChange("contact")}
+        onContactClick={() => window.open(
+          'mailto:email@mishrasanskar60.com?subject=Subject&body=Body%20goes%20here'
+        )}
       />
 
       {activeSection === "home" && (
