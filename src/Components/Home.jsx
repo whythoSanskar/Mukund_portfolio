@@ -26,14 +26,13 @@ export default function Home() {
           duration: 1.5,
           ease: "expo.inOut",
           onComplete: () => {
-            // Change the background color to white after full coverage
             setDelayedBgColor("bg-white");
           },
         }
       )
       .to(".right-to-left-overlay", {
         opacity: 0,
-        duration: 0.5, // Fade out the overlay
+        duration: 0.5,  
         ease: "power2.out",
         onComplete: () => {
           setOverlayComplete(true);
@@ -43,14 +42,12 @@ export default function Home() {
   };
 
   useEffect(() => {
-    // Trigger overlay animation when visible
     if (overlayVisible) {
       startOverlayAnimation();
     }
   }, [overlayVisible]);
 
   useEffect(() => {
-    // Initialize animation for the hero section
     if (activeSection === "home" && !heroTl.current) {
       heroTl.current = gsap.timeline();
 
@@ -69,7 +66,6 @@ export default function Home() {
   }, [activeSection]);
 
   useEffect(() => {
-    // Reset overlay and background state when leaving the 'about' section
     if (activeSection !== "about" && overlayComplete) {
       setOverlayComplete(false);
       setDelayedBgColor("bg-black");
