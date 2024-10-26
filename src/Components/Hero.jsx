@@ -1,40 +1,84 @@
-import { gsap } from 'gsap';
 import { useEffect } from 'react';
+import { gsap } from 'gsap';
 
 export default function Hero() {
   useEffect(() => {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({ defaults: { duration: 1.5, ease: "ease.out" } });
 
     tl.fromTo(
-      '.box-1', 
-      { opacity: 0 }, 
-      { opacity: 1 }
-    )
-    .fromTo(  
-      '.box-2',
-      { opacity: 0 },
-      { opacity: 1, duration: 3.2, ease: "power1.inOut" }
-    )
-    .fromTo(
-      '.box-3',
-      { opacity: 0 }, 
-      { opacity: 1, duration: 0.5, ease: "power1.inOut" }
-    )
-    .fromTo(
-      '.box-4',
-      { opacity: 0 }, 
-      { opacity: 1, duration: 1.5, ease: "power1.inOut" }
+      ".word-creating",
+      { opacity: 1, rotation: 9.487, x: 0 },
+      { opacity: 1, rotation: 0, x: 0 },
+      4
+    );
+
+    tl.fromTo(
+      ".word-meaningful",
+      { opacity: 0, fontSize: '1px', x: -150 },
+      { opacity: 1, fontSize: '75px', x: 0 },
+      4
+    );
+
+    tl.fromTo(
+      ".word-moments",
+      { opacity: 1, scaleY:-1, x: -60 },
+      { opacity: 1, scaleY:1, x: 0 },
+      4
+    );
+
+    tl.fromTo(
+      ".word-where",
+      { opacity: 1, scaleY:-1},
+      { opacity: 1, scaleY: 1},
+      4
+    );
+
+    tl.fromTo(
+      ".word-every",
+      { opacity: 1, rotation: 90, fontWeight:800, y:70},
+      { opacity: 1, rotation: 0, fontWeight:400 , y:0},
+      4
+    );
+
+    tl.fromTo(
+      ".word-detail",
+      { opacity: 1, y: -50, fontWeight: 265 },
+      { opacity: 1,  y: 0, fontWeight:400 },
+      4
+    );
+
+    tl.fromTo(
+      ".word-has",
+      { opacity: 1, y: -50 },
+      { opacity: 1, y: 0 },
+      4
+    );
+
+    tl.fromTo(
+      ".word-purpose",
+      { opacity: 0, fontSize: '1px', y: 50 },
+      { opacity: 1, fontSize: '75px', y: 0 },
+      4 
     );
   }, []);
 
   return (
-    <div className='flex justify-center items-center my-[212px]'>
-      <p className="typewriter text-8xl italic text-white text-center leading-none w-[828px]">
-        <span className="font-semibold box-1">Crafting</span>{" "}
-        <span className="font-instrument-serif box-2">Experiences</span>{" "}
-        <span className="font-light box-3">that</span>{" "}
-        <span className="font-instrument-serif box-4">matter</span>
-      </p>
+    <div className="flex flex-col items-center justify-center h-screen w-full bg-black text-[61px] font-creato">
+      <div className="flex items-center justify-center w-[500.75px] h-[108.6px] gap-4">
+        <span className="word-creating text-white font-bold">Creating</span>
+        <span className="word-meaningful text-white italic ml-2 font-instrument-serif">Meaningful</span>
+        <span className="word-moments text-white ml-2 w-[262px] h-[72px]">Moments,</span>
+      </div>
+
+      <div className="flex justify-center w-[1079px] h-[272px] gap-4">
+        <span className="word-where text-white w-[180px] h-[72px]">Where</span>
+        <span className="word-every text-white ml-2 w-[170px] h-[72px]">Every</span>
+        <div className="flex justify-center w-[140px] h-[272px]">
+          <span className="word-detail text-[61px] text-white">Detail</span>
+        </div>
+        <span className="word-has text-white ml-2 w-[100px] h-[72px]">Has</span>
+        <span className="word-purpose text-white italic ml-2  mt-[-14px] font-instrument-serif">Purpose.</span>
+      </div>
     </div>
   );
 }
