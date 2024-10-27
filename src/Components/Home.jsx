@@ -74,6 +74,9 @@ export default function Home() {
 
   const handleSectionChange = (section) => {
     setActiveSection(section);
+    if (section === "home") {
+      window.location.reload();
+    }
     if (section === "about") {
       setOverlayVisible(true);
     } else {
@@ -82,15 +85,20 @@ export default function Home() {
   };
 
   return (
-    <div className={`relative min-h-screen w-screen ${delayedBgColor} overflow-hidden`}>
+    <div
+      className={`relative min-h-screen w-screen ${delayedBgColor} overflow-hidden`}
+      style={{ height: "100vh", width: "100vw", overflow: "hidden" }}  
+    >
       {overlayVisible && (
         <div
-          className="right-to-left-overlay fixed top-0 left-0 w-full h-full bg-white"
+          className="right-to-left-overlay fixed top-0  inset-0 left-0 w-full h-full bg-white"
           style={{
             zIndex: 10,
             pointerEvents: "none",
             clipPath: "inset(0% 0% 0% 100%)",
             opacity: 1,
+            height: "100vh",
+            width: "100vw",  
           }}
         ></div>
       )}
@@ -98,20 +106,31 @@ export default function Home() {
       <Navbar
         activeSection={activeSection}
         overlayComplete={overlayComplete}
+        onHomeClick={() => handleSectionChange("home")}
         onProjectsClick={() => handleSectionChange("projects")}
         onAboutClick={() => handleSectionChange("about")}
-        onContactClick={() => window.open(
-          'mailto:email@mishrasanskar60.com?subject=Subject&body=Body%20goes%20here'
-        )}
+        onContactClick={() =>
+          window.open(
+            "mailto:email@mishrasanskar60.com?subject=Subject&body=Body%20goes%20here"
+          )
+        }
       />
 
       {activeSection === "home" && (
-        <div className="hero">
+        <div className="hero" style={{ height: "100vh", width: "100vw" }}>
           <Hero />
         </div>
       )}
-      {activeSection === "projects" && <Projects />}
-      {activeSection === "about" && overlayComplete && <About />}
+      {activeSection === "projects" && (
+        <div style={{ height: "100vh", width: "100vw" }}>
+          <Projects />
+        </div>
+      )}
+      {activeSection === "about" && overlayComplete && (
+        <div style={{ height: "100vh", width: "100vw" }}>
+          <About />
+        </div>
+      )}
     </div>
   );
 }
