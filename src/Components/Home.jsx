@@ -104,6 +104,7 @@ export default function Home() {
       )}
 
       <Navbar
+        className="z-20"
         activeSection={activeSection}
         overlayComplete={overlayComplete}
         onHomeClick={() => handleSectionChange("home")}
@@ -118,17 +119,17 @@ export default function Home() {
 
       {activeSection === "home" && (
         <div className="hero" style={{ height: "100vh", width: "100vw" }}>
-          <Hero />
+          <Hero className="z-10" />
         </div>
       )}
       {activeSection === "projects" && (
         <div style={{ height: "100vh", width: "100vw" }}>
-          <Projects />
+          <Projects className="z-10" />
         </div>
       )}
       {activeSection === "about" && overlayComplete && (
-        <div style={{ height: "100vh", width: "100vw" }}>
-          <About />
+        <div className="z-10" style={{ height: "100vh", width: "100vw" }}>
+          <About className="z-10" />
         </div>
       )}
     </div>
