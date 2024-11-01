@@ -1,54 +1,43 @@
-import { landingSvg, AboutImg } from "../utils";
+import { AboutImg } from "../utils";
 
 // eslint-disable-next-line react/prop-types
 export default function About() {
   return (
     <main
-      className={`min-h-screen mx-auto py-1 relative`}>
+      className={`min-h-screen py-1 relative`}>
       <div
-        className="flex flex-col items-center mb-20 abox-1 abt-text relative"
+        className="flex flex-row items-center mb-20 abox-1 abt-text relative gap-48 text-greyish mt-9"
         style={{ zIndex: 20 }}
       >
+
+        <div className="flex flex-col items-center mx-36 mt-[70px] font-creato">
+          <p className="text-[24px] leading-normal font-normal w-[690px] text-line-1">
+          Hey there! I’m <span className="font-instrument-serif italic text-[36px] text-black">Mukund Sharma,</span> 
+          </p>
+
+          <p className="leading-normal font-normal w-[690px] text-line-2 text-[18px] ">
+          I am committed to ensuring that users truly enjoy using any product. I am always seeking ways to <span className="font-instrument-serif italic text-black">enhance functionality</span> and create a delightful experience with every click.
+          </p>
+        </div>
         <img
-          src={landingSvg}
+          src={AboutImg}
           alt="Illustrated portrait"
           loading="lazy"
-          className={`w-[191.61px] h-[191.61px] mb-8 cursor-pointer mt-[55px]`}
+          className={`cursor-pointer`}
           style={{
             zIndex: 1,
             transition: "transform 1.2s ease-out, opacity 1s",
           }}
         />
 
-        <div className="flex flex-col items-center space-y-6 abox-2 text-black">
-          <p className="text-[22px] leading-normal font-normal w-[468px] text-line-1">
-            Hey there! I&apos;m Mukund Sharma, a UX designer with a knack for
-            turning &quot;meh&quot; into{" "}
-            <span className="font-semibold italic">marvelous</span>.
-          </p>
-
-          <p className="text-[22px] leading-normal font-normal w-[468px] text-line-2">
-            I&apos;ve spent the last year making sure users actually enjoy
-            using products. I&apos;m like a digital detective, constantly on
-            the lookout for ways to improve functionality and make every click
-            a delightful experience.
-          </p>
-        </div>
       </div>
 
       <div
-        className="flex flex-col items-center abox-3 relative text-black"
+        className="flex flex-row relative text-greyish mx-36"
         style={{ zIndex: 20 }}
-      >
-        <img
-          src={AboutImg}
-          alt="Decorative badge"
-          loading="lazy"
-          className="w-[115px] h-[115px] mb-8"
-        />
-
-        <p className="text-[22px] leading-normal font-normal w-[468px] text-line-3">
-          If you&apos;ve got a product that needs some love, I&apos;m your go-to!
+      > 
+        <p className="text-[18px] leading-normal font-normal w-20 h-6 font-creato">
+        I excel in:
         </p>
       </div>
     </main>

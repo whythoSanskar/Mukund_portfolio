@@ -26,7 +26,6 @@ export default function Landing() {
       { opacity: 1, y: 0, duration: 0.8, ease: 'ease.in' }
     )
     .to('.black-screen', { opacity: 0, duration: 1 }, "+=0.5")
-   
   }, []);
 
   return (
@@ -34,7 +33,7 @@ export default function Landing() {
       <div className="grid items-center min-h-screen justify-center landing">
         <div className="container-landing flex content-between justify-center landing-image-text">
           <img className="landing-image" src={landingSvg} alt="landing svg"  loading="lazy" />
-          <div className="text-black w-[100px] h-[22.2px] md:w-[337px] md:h-[74px] text-lg md:text-4xl my-10 md:my-[110px]">
+          <div className="text-black w-[100px] h-[22.2px] md:w-[337px] md:h-[74px] text-2xl md:text-4xl my-16 md:my-[110px]">
             <p className='font-instrument-serif italic'>
             Designing functionality
             </p>

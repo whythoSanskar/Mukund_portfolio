@@ -12,9 +12,9 @@ export default function Navbar({ activeSection, overlayComplete, onHomeClick, on
   useEffect(() => {
     if (activeSection === 'about') {
       const timer = setTimeout(() => {
-        setNavbarColor("bg-white");
+        setNavbarColor("bg-white-100");
         setTextColor("text-black");
-      }, 1200); 
+      }, 1250); 
 
       return () => clearTimeout(timer);
     } else {

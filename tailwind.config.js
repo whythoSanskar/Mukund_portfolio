@@ -23,7 +23,7 @@ export default {
         'creato': ['Creato Display', 'sans-serif'],
       },
       colors:{
-        "greyish" : "#6F6F6F",
+        "greyish" : "#858585",
         "grayer": "#4A4A4A"
       }
     },
