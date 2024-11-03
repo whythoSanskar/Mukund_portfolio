@@ -104,7 +104,7 @@ export default function Home() {
       )}
 
       <Navbar
-        className="z-20"
+        className="z-30"
         activeSection={activeSection}
         overlayComplete={overlayComplete}
         onHomeClick={() => handleSectionChange("home")}
@@ -112,24 +112,24 @@ export default function Home() {
         onAboutClick={() => handleSectionChange("about")}
         onContactClick={() =>
           window.open(
-            "mailto:email@mishrasanskar60.com?subject=Subject&body=Body%20goes%20here"
+            "mailto:mishrasanskar60.com?subject=Subject&body=Body%20goes%20here"
           )
         }
       />
 
       {activeSection === "home" && (
         <div className="hero" style={{ height: "100vh", width: "100vw" }}>
-          <Hero className="z-10" />
+          <Hero className="z-10 bg-black" />
         </div>
       )}
       {activeSection === "projects" && (
         <div style={{ height: "100vh", width: "100vw" }}>
-          <Projects className="z-10" />
+          <Projects className="z-10 bg-black" />
         </div>
       )}
       {activeSection === "about" && overlayComplete && (
         <div className="z-10" style={{ height: "100vh", width: "100vw" }}>
-          <About className="z-10" />
+          <About className="z-10 bg-white" />
         </div>
       )}
     </div>

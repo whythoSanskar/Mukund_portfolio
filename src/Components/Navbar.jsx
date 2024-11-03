@@ -6,19 +6,16 @@ import { useMediaQuery } from "react-responsive";
 export default function Navbar({ activeSection, overlayComplete, onHomeClick, onProjectsClick, onAboutClick, onContactClick }) {
   const isSmallScreen = useMediaQuery({ maxWidth: 639 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [navbarColor, setNavbarColor] = useState("bg-black");
   const [textColor, setTextColor] = useState("text-white");
 
   useEffect(() => {
     if (activeSection === 'about') {
       const timer = setTimeout(() => {
-        setNavbarColor("bg-white-100");
         setTextColor("text-black");
       }, 1250); 
 
       return () => clearTimeout(timer);
     } else {
-      setNavbarColor("bg-black");
       setTextColor("text-white");
     }
   }, [activeSection]);
@@ -43,10 +40,10 @@ export default function Navbar({ activeSection, overlayComplete, onHomeClick, on
 
   
   return (
-    <nav className={`flex justify-between items-center w-full px-6 md:px-10 lg:px-[99px] py-4 ${navbarColor} transition-colors duration-500`}>
+    <nav className={`flex justify-between items-center w-full px-6 md:px-10 lg:px-[99px] py-4  transition-colors duration-500 font-creato`}>
       <div className="flex items-center cursor-pointer">
-        <img src={navImg} alt="navimage" style={{ zIndex: 1 }} />
-        <p className={`text-lg lg:text-xl ${textColor} ml-2`} style={{ zIndex: 2 }} onClick={onHomeClick}>Mukund Sharma</p>
+        <img src={navImg} alt="navimage" style={{ zIndex: 1 }} onClick={onHomeClick} className="mt-[-5px] w-[70px] h-[70px] md:w-[83px] md:h-[83px]"/>
+        <p className={`text-lg lg:text-xl ${textColor} ml-0 md:ml-2`} style={{ zIndex: 2 }} onClick={onHomeClick}>Mukund Sharma</p>
       </div>
 
       {isSmallScreen && (
