@@ -51,7 +51,7 @@ export default function Projects() {
   return (
     <div>
       <div className="projectTitle font-creato">
-        <p className="text-[42px] md:text-[55px] relative top-[15vh] left-[11vw] md:left-[8vw] font-medium text-white font-sf-pro-display">
+        <p className="text-[42px] md:text-[55px] absolute top-[15vh] left-[11vw] md:left-[8vw] font-medium text-white font-sf-pro-display">
           Work
         </p>
       </div>
