@@ -72,7 +72,7 @@
     }, []);
 
     return (
-      <div className="flex flex-col items-center justify-center mt-[350px] md:mt-[220px] w-full bg-black text-[1.39rem] md:text-[3.8rem] font-creato">
+      <div className="flex flex-col items-center justify-center mt-[240px] md:mt-[220px] w-full bg-black text-[1.39rem] md:text-[3.8rem] font-creato">
         <div className="flex items-center justify-center gap-1 md:gap-3">
           <span className="word-creating text-white">Creating</span>
           <span className="word-meaningful text-white italic font-instrument-serif">Meaningful</span>
