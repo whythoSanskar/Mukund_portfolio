@@ -1,12 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Landing from './Components/Landing';
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import './App.css'
 
-export default function App() {
+function App() {
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-      </Routes>
-    </Router>
-  );
+    <>
+      <Navbar />
+      <div>
+        <Hero />
+      </div>
+    </>
+  )
 }
+
+export default App
