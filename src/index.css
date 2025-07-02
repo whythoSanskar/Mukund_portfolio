@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 html {
   @apply min-h-screen bg-gray-100;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+    cursor: url('/Arrow.svg') 0 0 , default;
+
+  
 }
 
 body {
-  @apply font-albert 
+  @apply font-albert;
 }
