@@ -1,3 +1,5 @@
+
+
 export default function Hero() {
   return (
     <>
@@ -28,15 +30,18 @@ export default function Hero() {
           <img
             src="/figma.svg"
             alt="Logo"
-            className=" absolute left-[13rem] top-[17rem] overflow=hidden z-0"
+            className=" absolute left-[13rem] top-[17rem] overflow-hidden z-0"
           />
           <img
             src="/brain.svg"
             alt="Logo"
-            className=" absolute right-[-3rem] top-[14rem] overflow=hidden z-0"
+            className=" absolute right-[-3rem] top-[14rem] overflow-hidden z-0"
           />
         </div>
+        
       </div>
+
+      
     </>
   );
 }
