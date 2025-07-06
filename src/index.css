@@ -7,8 +7,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  @apply min-h-screen bg-gray-100;
+html, body {
+  @apply h-auto w-auto bg-gray-100 m-0 p-0 font-albert;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -17,6 +17,34 @@ html {
   
 }
 
-body {
-  @apply font-albert;
+
+@media (-webkit-device-pixel-ratio: 1.25) {
+  * {
+    zoom: 0.96;
+  }
+}
+@media (-webkit-device-pixel-ratio: 1.25) {
+  .sticker-figma {
+    top: 17rem !important;
+    left: 16rem !important;
+  }
+  .sticker-thumbs {
+    top: -3rem !important;
+    left: -6rem !important;
+  }
+
+  .sticker-alien {
+    top: -14rem !important;
+    right: -2rem !important;
+  }
+
+  .sticker-smili {
+    left: 16rem !important;
+    top: -1rem !important;
+  }
+
+  .sticker-brain {
+    top: 14rem !important;
+    right: -2rem !important;
+  }
 }
